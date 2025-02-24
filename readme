@@ -1,0 +1,16 @@
+#Necessary input: New sequences in fasta file (one or many)
+https://huggingface.co/spaces/PiKaHa/Rubisco_Kinetics-Prediction
+
+#Step 1: Generate ESM Embeddings
+bash helper_scripts/esm_extraction.sh
+
+#Step 2: Convert fasta file to csv file 
+python helper_scripts/fasta2df.py example.fa #returns example.csv
+
+
+#Step 3: For plant-specific prediction
+python plant_prediction.py example.csv 
+
+#Step 4: For General Prediction
+python general_prediction.py
+
